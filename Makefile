@@ -13,6 +13,9 @@ run: demo
 
 mem_test: demo
 	valgrind ./$^
+	
+mem_test2: demo
+	valgrind --leak-check=yes -v ./$^
 
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
